@@ -1,38 +1,292 @@
+:root {
+  --mc-dark   : rgb(70, 160, 190);
+  --dark: rgb(5, 5, 10);
+  --ac-dark : rgb(147,21,21);
+  --accent  : rgb(210,30,30);
+  --ac-light: rgb(255,45,45);
+
+}
+
+
+html {
+  height: 100%;
+  width: 100%;
+
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+
+  overflow: hidden;
+}
+
 .App {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+
+}
+
+.button {
+  cursor: pointer;
+  border-radius: 25px;
+  border: solid black;
+  box-shadow: 10px 10px;
+
+  font-size: 4em;
+  font-weight: bold;
+
+  background-color: var(--accent);
+
+}
+
+#stumbleSection {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+  background-color: var(--mc-dark);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+#stumbleButton {
+  width: 60%;
+  height: 30%;
+}
+
+#submissionPanel {
+  width: 60%;
+  height: 30%;
+
+  display: flex;
+  flex-direction: row;
+}
+
+#submissionInput {
+  width: 100%;
+  height: 100%;
+
+  border: solid black;
+  border-radius: 25px;
+  background-color: var(--ac-light);
+
+  font-size: 4em;
+  font-weight: bold;
+}
+
+#submissionInput::placeholder {
+  color: var(--ac-dark);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+#aboutSection {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 6;
+
+  background-color: var(--mc-dark);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#aboutLinks {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+  font-size: 18pt;
+
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#historySection {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 6;
+
+  background-color: var(--mc-dark);
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#historyList {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  gap: 5%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.historyItem {
+  height: 50px;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.historySite {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+}
+
+.historyLike {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  text-align: center;
+}
+
+.likeIcon {
+  height: 50px;
+  cursor: pointer;
+}
+
+.historyTalk {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  text-align: center;
+}
+
+.text {
+  font-size: 18pt;
+  font-weight: bold;
+  margin-left: 2%;
+  margin-right: 2%;
+
+  color: var(--dark);
+}
+
+.title {
+  font-size: 30pt;
+  font-weight: bolder;
+
+  align-self: center;
+}
+
+#adSection {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 6;
+
+  background-color: var(--mc-dark);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pulse {
+  animation: pulse 500ms infinite;
+}
+
+#overlay {
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40vw;
+  height: 50vh;
+  margin-top: -25vh;
+  margin-left: -20vw;
+
+  border-radius: 10px;
+  border: solid black;
+  background-color: var(--ac-light);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#modalText {
+  font-size: 30pt;
+  align-self: flex-start;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#modalButton {
+  width: 50%;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: scale(2);
   }
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+
+
+@media screen and (max-width: 1300px) {
+
+  .text {
+    font-size: 15pt;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+
 }
