@@ -119,8 +119,8 @@ function About() {
       <p className="text">StumblingOn shows you a random webpage whenever you click the STUMBLE button. Bored? Why not stumble on something unique?  StumblingOn is a stumble upon alternative, or clone.</p>
       <p className="text">You'll stumble on pages that are UNIQUE. Our catalog is interesting, independent, and different. We want to recapture the old, weird, and adventurous feeling of the web.</p>
       <p className="text">Submit a website. Submit YOUR website. If it's popular, pornographic, or professional, don't bother. If it's something you made and want to share - you're in exactly the right place. We'd love to have you.</p>
-      <p  className="text">Follow development on <a href="https://youtube.com">YouTube</a></p>
-      <div id="aboutLinks"><a href="https://service.stumblingon.com/metrics">metrics</a> <a href="https://service.stumblingon.com/docs#/">api</a> <a href="">github</a></div>
+      <p  className="text">Follow development on <a href="https://www.youtube.com/channel/UCqYOAWurt9umvwSrTGXBykw/" target="_blank">YouTube</a></p>
+      <div id="aboutLinks"><a href="https://service.stumblingon.com/metrics" target="_blank">metrics</a> <a href="https://service.stumblingon.com/docs#/" target="_blank">api</a> <a href="https://github.com/inteoryx/StumblingOnUI" target="_blank">github</a></div>
     </div>
   );
 }
