@@ -1,10 +1,10 @@
 :root {
-  --mc-dark   : rgb(70, 160, 190);
+  --mc-dark   : rgb(70, 195, 190);
   --mc-dg   : rgb(50, 130, 160);
   --dark: rgb(5, 5, 10);
-  --ac-dark : rgb(147,21,21);
-  --accent  : rgb(210,30,30);
-  --ac-light: rgb(255,45,45);
+  --ac-dark : rgb(130,21,55);
+  --accent  : rgb(220,90,90);
+  --ac-light: rgb(240,140,130);
 
 }
 
@@ -96,6 +96,10 @@ body {
 #submissionInput::placeholder {
   color: var(--ac-dark);
   text-align: center;
+}
+
+#submissionInput:focus {
+  outline: 3px solid var(--ac-dark);
 }
 
 
@@ -195,7 +199,7 @@ body {
 }
 
 .text {
-  font-size: 18pt;
+  font-size: 14pt;
   font-weight: bold;
   margin-left: 2%;
   margin-right: 2%;
@@ -265,6 +269,7 @@ body {
 
 #modalButton {
   width: 50%;
+  background-color: var(--accent);
 }
 
 @keyframes pulse {
@@ -285,9 +290,9 @@ body {
 @media screen and (max-width: 1500px) {
 
   .text {
-    font-size: 15pt;
     margin-left: 0%;
     margin-right: 0%;
+    font-size: 1.2vw;
   }
 
 
@@ -349,6 +354,9 @@ body {
 
   #submissionPanel {
     width: 95%;
+
+    display: flex;
+    flex-direction: column;
   }
 
   #aboutSection {
@@ -380,6 +388,10 @@ body {
     height: 80vh;
     margin-top: -10vh;
     margin-left: -10vw;
+  }
+
+  .text {
+    font-size: 14pt;
   }
 
 

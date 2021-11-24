@@ -4,6 +4,14 @@ import liked from './liked.svg';
 import React from 'react';
 import sc from './StumbleClient';
 
+function isValidHttpUrl(string) {
+  let url;
+  
+
+  return url.protocol === "http:" || url.protocol === "https:";
+}
+
+
 class App extends React.Component {
 
   constructor(props) {
@@ -96,6 +104,14 @@ class Stumble extends React.Component {
             id="submitButton"
             className="button"
             onClick={() => {
+              
+              try {
+                const url = new URL(this.state.submissionUrl);
+              } catch (_) {
+                this.setState({modal: true, modalMessage: "Please enter a valid URL."});
+                return false;  
+              }
+
               sc.submitSite(
                 this.state.submissionUrl,
                 (s) => this.setState({modal: true, modalMessage: s.message, submissionUrl: ""}),
@@ -119,8 +135,8 @@ function About() {
       <p className="text">Click STUMBLE get a random webpage.  Explore unique independent websites.  It's the old, weird, and adventurous feeling of the web.  Explore random webpages.</p>
       <p className="text">Submit a website. Submit YOUR website. Nothing popular, pornographic, or professional. Made something and want to share? You're in exactly the right place. We'd love to have you.</p>
       <p className="text">You might think StumblingOn is a Stumble Upon alternative or Stumble Upon clone.  I agree and hope google returns it as the first result for "Stumble Upon Alternative"</p>
-      <p  className="text">Follow development on <a href="https://www.youtube.com/channel/UCqYOAWurt9umvwSrTGXBykw/" target="_blank">YouTube</a></p>
-      <div id="aboutLinks"><a href="https://service.stumblingon.com/metrics" target="_blank">metrics</a> <a href="https://service.stumblingon.com/docs#/" target="_blank">api</a> <a href="https://github.com/inteoryx/StumblingOnUI" target="_blank">github</a></div>
+      <p  className="text">Follow development on <a href="https://www.youtube.com/channel/UCqYOAWurt9umvwSrTGXBykw/" target="_blank" rel="noreferrer">YouTube</a></p>
+      <div id="aboutLinks"><a href="https://service.stumblingon.com/metrics" target="_blank" rel="noreferrer">metrics</a> <a href="https://service.stumblingon.com/docs#/" target="_blank" rel="noreferrer">api</a> <a href="https://github.com/inteoryx/StumblingOnUI" target="_blank" rel="noreferrer">github</a></div>
     </div>
   );
 }
@@ -152,11 +168,18 @@ class HistoryItem extends React.Component {
   }
 
   like() {
-    console.log("Liking this.");
+
+    // Set state before network call.  Network call will correct if it fails.
+    const prev = this.state.liked;
+    this.setState({liked: true});
+
     sc.like(
       this.props.item.id,
-      (s) => this.setState({liked: !this.state.liked, disliked: false}),
-      (e) => console.log(e)
+      (s) => {this.setState({liked: s.liked, disliked: false})},
+      (e) => {
+        console.log(e);
+        this.setState({liked: prev});
+      }
     );
   }
 
@@ -169,13 +192,14 @@ class HistoryItem extends React.Component {
         <div className="historyLike">
           <img 
             className={this.state.mouseOverLike ? "likeIcon pulse" : "likeIcon"}
-            src={this.state.liked ? liked : like} 
+            src={this.state.liked ? liked : like}
+            alt={this.state.liked ? "A filled heart.  You liked this." : "A clear heart, awaiting a click, to indicate you like this."} 
             onClick={this.like}
             onMouseEnter={() => this.setState({mouseOverLike: true})}
             onMouseLeave={() => this.setState({mouseOverLike: false})}
           />
         </div>
-        <div className="historyTalk"><a href={"https://twitter.com/search?q=" + encodeURIComponent(this.props.item.url) + "&src=typed_query&f=top"} target="_blank">Talk</a></div>
+        <div className="historyTalk"><a href={"https://twitter.com/search?q=" + encodeURIComponent(this.props.item.url) + "&src=typed_query&f=top"} target="_blank" rel="noreferrer">Talk</a></div>
       </div>
     );
   }
@@ -197,8 +221,7 @@ function Ad() {
     <div id="adSection">
       <h1 className="title">Ad</h1>
       <p className="text">Psst.  Hey kid.  Wanna make some money?  Like, free money?</p>
-      <p className="text">Join <a href="https://crypto.com/app/9s97gpwtm3" target="_blank">crypto.com</a> with my referral code (9s97gpwtm3).  You'll get 25 dollars in cryptocurrency if you sign up.</p>
-      <p className="text">Come on.  I know you're bored.  Why not waste time and money?</p>
+      <p className="text">Join <a href="https://crypto.com/app/9s97gpwtm3" target="_blank" rel="noreferrer">crypto.com</a> with my referral code (9s97gpwtm3).  You'll get 25 dollars in cryptocurrency if you sign up.</p>
     </div>
   );
 }
