@@ -3,9 +3,9 @@ This package is the front end for https://stumblingon.com
 
 https://stumblingon.com is a Stumble Upon alternative.  You click a button and get a random website.  You can submit your own websites if they are interesting, independent, and fun!
 
-# StumbleService
+# StumbleServer
 
-The StumbleService that powers this front end is a separate project.  I will get it on github and add a link here.
+The service that powers this front end is a separate project.  Find it here: https://github.com/inteoryx/StumbleServer
 
 # YouTube
 
