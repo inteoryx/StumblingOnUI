@@ -105,7 +105,6 @@ class Stumble extends React.Component {
             id="submitButton"
             className="button"
             onClick={() => {
-
               try {
                 new URL(this.state.submissionUrl);
               } catch (_) {
@@ -133,19 +132,21 @@ class Stumble extends React.Component {
 function About() {
   return (
     <div id="aboutSection">
-      <h1 className="title">StumblingOn</h1>
-      <p className="text">Click STUMBLE get a random webpage. Explore unique independent websites. It's the old, weird,
-        and adventurous feeling of the web. Explore random webpages.</p>
-      <p className="text">Submit a website. Submit YOUR website. Nothing popular, pornographic, or professional. Made
-        something and want to share? You're in exactly the right place. We'd love to have you.</p>
-      <p className="text">You might think StumblingOn is a Stumble Upon alternative or Stumble Upon clone. I agree and
-        hope google returns it as the first result for "Stumble Upon Alternative"</p>
-      <p className="text">Follow development on <a href="https://www.youtube.com/channel/UCqYOAWurt9umvwSrTGXBykw/"
-        target="_blank" rel="noreferrer">YouTube</a></p>
-      <div id="aboutLinks"><a href="https://service.stumblingon.com/metrics" target="_blank"
-        rel="noreferrer">metrics</a> <a href="https://service.stumblingon.com/docs#/"
-          target="_blank" rel="noreferrer">api</a> <a
-            href="https://github.com/inteoryx/StumblingOnUI" target="_blank" rel="noreferrer">github</a></div>
+      <div id="aboutSectionContent">
+        <h1 className="title">StumblingOn</h1>
+        <p className="text">Click STUMBLE get a random webpage. Explore unique independent websites. It's the old, weird,
+          and adventurous feeling of the web. Explore random webpages.</p>
+        <p className="text">Submit a website. Submit YOUR website. Nothing popular, pornographic, or professional. Made
+          something and want to share? You're in exactly the right place. We'd love to have you.</p>
+        <p className="text">You might think StumblingOn is a Stumble Upon alternative or Stumble Upon clone. I agree and
+          hope google returns it as the first result for "Stumble Upon Alternative"</p>
+        <p className="text">Follow development on <a href="https://www.youtube.com/channel/UCqYOAWurt9umvwSrTGXBykw/"
+                                                     target="_blank" rel="noreferrer">YouTube</a></p>
+        <div id="aboutLinks"><a href="https://service.stumblingon.com/metrics" target="_blank"
+                                rel="noreferrer">metrics</a> <a href="https://service.stumblingon.com/docs#/"
+                                                                target="_blank" rel="noreferrer">api</a> <a
+          href="https://github.com/inteoryx/StumblingOnUI" target="_blank" rel="noreferrer">github</a></div>
+      </div>
     </div>
   );
 }
@@ -233,11 +234,13 @@ function Modal(props) {
 function Ad() {
   return (
     <div id="adSection">
-      <h1 className="title">Ad</h1>
-      <p className="text">Psst. Hey kid. Wanna make some money? Like, free money?</p>
-      <p className="text">Join <a href="https://crypto.com/app/9s97gpwtm3" target="_blank"
-        rel="noreferrer">crypto.com</a> with my referral code (9s97gpwtm3). You'll get 25
-        dollars in cryptocurrency if you sign up.</p>
+      <div id="adSectionContent">
+        <h1 className="title">Ad</h1>
+        <p className="text">Psst. Hey kid. Wanna make some money? Like, free money?</p>
+        <p className="text">Join <a href="https://crypto.com/app/9s97gpwtm3" target="_blank"
+                                    rel="noreferrer">crypto.com</a> with my referral code (9s97gpwtm3). You'll get 25
+          dollars in cryptocurrency if you sign up.</p>
+      </div>
     </div>
   );
 }
