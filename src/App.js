@@ -234,12 +234,15 @@ function Modal(props) {
 function Ad() {
   return (
     <div id="adSection">
-      <div id="adSectionContent">
+      <div 
+        id="adSectionContent"
+        onClick={() => window.open("https://twitter.com/ai_pickuplines")}
+      >
         <h1 className="title">Ad</h1>
-        <p className="text">Psst. Hey kid. Wanna make some money? Like, free money?</p>
-        <p className="text">Join <a href="https://crypto.com/app/9s97gpwtm3" target="_blank"
-                                    rel="noreferrer">crypto.com</a> with my referral code (9s97gpwtm3). You'll get 25
-          dollars in cryptocurrency if you sign up.</p>
+        <p className="text">AI Generated Pickup Lines</p>
+        <img id="adImage" src="https://i.imgur.com/MIhsiv3.png" width="100" height="100" />
+        <p className="text">Warning: Highly Inappropriate</p>
+        <p className="text">Warning: Twitter</p>
       </div>
     </div>
   );

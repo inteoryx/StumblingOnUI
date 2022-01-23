@@ -270,6 +270,17 @@ p {
   background-color: var(--accent);
 }
 
+#adSectionContent {
+    display: flex;
+    flex-direction: column;
+
+    cursor: pointer;
+}
+
+#adImage {
+  align-self: center;
+}
+
 @keyframes pulse {
   0% {
     transform: scale(1);
